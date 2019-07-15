@@ -13,8 +13,8 @@ modules="org/godotengine/godot/GodotAppsFlyer"
 
 
 ```gdscript
-if(Globals.has_singleton("GodotAppsFlyer")):
-	instance = Globals.get_singleton("GodotAppsFlyer")
-	instance.init("key", "app_id")
-	instance.track_event("event", {"param1": 42})
+if(Engine.has_singleton("GodotAppsFlyer")):
+	apps_flyer = Engine.get_singleton("GodotAppsFlyer")
+	apps_flyer.init("key", "app_id")
+	apps_flyer.track_event("event", {"param1": 42})
 ```
