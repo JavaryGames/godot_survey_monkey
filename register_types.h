@@ -1,2 +1,2 @@
-void register_appsflyer_types();
-void unregister_appsflyer_types();
+void register_godot_appsflyer_types();
+void unregister_godot_appsflyer_types();

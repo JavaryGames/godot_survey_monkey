@@ -3,11 +3,11 @@
 #include "ios/GodotAppsFlyer.h"
 #endif
 
-void register_appsflyer_types() {
+void register_godot_appsflyer_types() {
 #if defined(__APPLE__)
 	ClassDB::register_class<GodotAppsFlyer>();
 #endif
 }
 
-void unregister_appsflyer_types() {
+void unregister_godot_appsflyer_types() {
 }
