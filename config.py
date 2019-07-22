@@ -15,6 +15,6 @@ def configure(env):
         env.android_add_res_dir("android/res/")
         #env.disable_module()
     if (env['platform'] == 'iphone'):
-        env.Append(FRAMEWORKPATH=['modules/godot_appsflyer/ios/lib'])
+        env.Append(FRAMEWORKPATH=['ios/lib'])
         env.Append(LINKFLAGS=['-ObjC', '-framework','AppsFlyerLib'])
 
