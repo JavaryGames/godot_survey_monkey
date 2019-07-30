@@ -1,9 +1,3 @@
-//
-//  GodotKochava.mm
-//
-//  Created by Vasiliy on 13.05.19.
-//
-//
 
 #import <Foundation/Foundation.h>
 #import "./GodotAppsFlyer.h"
@@ -13,7 +7,7 @@ NSDictionary *convertFromDictionary(const Dictionary& dict)
 {
     NSMutableDictionary *result = [NSMutableDictionary new];
     for(int i=0; i<dict.size(); i++) {
-        Variant key = dict.get_key_at_index(i);
+        Variant key = dict.get_key_at_index(i); 
         Variant val = dict.get_value_at_index(i);
         if(key.get_type() == Variant::STRING) {
             NSString *strKey = [NSString stringWithUTF8String:((String)key).utf8().get_data()];
@@ -50,19 +44,33 @@ GodotAppsFlyer::~GodotAppsFlyer()
 {
 }
 
-void GodotAppsFlyer::init(const String& key, const String& appId)
+void GodotAppsFlyer::init(const String& key, const String& appId, const String& appleAppID)
 {
     NSString *strKey = [NSString stringWithUTF8String:key.utf8().get_data()];
-    NSString *strAppId = [NSString stringWithUTF8String:appId.utf8().get_data()];
+    NSString *strAppleAppID = [NSString stringWithUTF8String:appleAppID.utf8().get_data()];
     
     [AppsFlyerTracker sharedTracker].appsFlyerDevKey = strKey;
-    [AppsFlyerTracker sharedTracker].appleAppID = strAppId;
+    [AppsFlyerTracker sharedTracker].appleAppID = strAppleAppID;
     [AppsFlyerTracker sharedTracker].delegate = nil;
 #ifdef DEBUG
     [AppsFlyerTracker sharedTracker].isDebug = true;
 #endif
 
-    [[AppsFlyerTracker sharedTracker] trackAppLaunch];
+    // [[AppsFlyerTracker sharedTracker] trackAppLaunch];
+
+    [[AppsFlyerTracker sharedTracker] trackAppLaunchWithCompletionHandler:^(NSDictionary<NSString *,id> *dictionary, NSError *error) {
+        if (error) {
+            NSLog(@"AppsFlyerTracker trackAppLaunch ERROR");
+            NSLog(@"%@", error);
+            return;
+        }
+        if (dictionary) {
+            NSLog(@"AppsFlyerTracker trackAppLaunch SUCCESSFUL");
+            NSLog(@"%@", dictionary);
+            return;
+        }
+        [NSException exceptionWithName:@"fatalError" reason:nil userInfo:nil];
+    }];
 }
 
 void GodotAppsFlyer::trackEvent(const String& event, const Dictionary& params)

@@ -35,7 +35,7 @@ public class GodotAppsFlyer extends Godot.SingletonBase {
 
     // Public methods
 
-    public void init(final String key, final String appId)
+    public void init(final String key, final String appId, final String appleAppID)
     {
         activity.runOnUiThread(new Runnable() {
             @Override
