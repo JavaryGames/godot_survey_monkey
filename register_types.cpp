@@ -2,14 +2,14 @@
 #include "core/class_db.h"
 #include "core/engine.h"
 #ifdef IPHONE_ENABLED
-#include "ios/GodotAppsFlyer.h"
+#include "ios/GodotSurveyMonkey.h"
 #endif
 
-void register_godot_appsflyer_types() {
+void register_godot_survey_monkey_types() {
 	#ifdef IPHONE_ENABLED
-	Engine::get_singleton()->add_singleton(Engine::Singleton("GodotAppsFlyer", memnew(GodotAppsFlyer)));
+	Engine::get_singleton()->add_singleton(Engine::Singleton("GodotSurveyMonkey", memnew(GodotSurveyMonkey)));
 	#endif
 }
 
-void unregister_godot_appsflyer_types() {
+void unregister_godot_survey_monkey_types() {
 }

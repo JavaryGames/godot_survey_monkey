@@ -1,2 +1,2 @@
-void register_godot_appsflyer_types();
-void unregister_godot_appsflyer_types();
+void register_godot_survey_monkey_types();
+void unregister_godot_survey_monkey_types();
