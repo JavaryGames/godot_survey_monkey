@@ -9,11 +9,10 @@
 #define GodotSurveyMonkey_h
 
 
-#import <SurveyMonkeyiOSSDK/SurveyMonkeyiOSSDK.h>
-#include "core/object.h"
+#include "core/reference.h"
  
-class GodotSurveyMonkey : public Object {
-    GDCLASS(GodotSurveyMonkey, Object);
+class GodotSurveyMonkey : public Reference {
+    GDCLASS(GodotSurveyMonkey, Reference);
 
     static void _bind_methods();
 
