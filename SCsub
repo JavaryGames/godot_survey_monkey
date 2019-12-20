@@ -4,5 +4,5 @@ Import('env')
 if env['platform'] == 'iphone':
     env.Append(CCFLAGS="-iframeworkmodules/survey_monkey/ios")
     env.add_source_files(env.modules_sources, "ios/*.mm")
-    env.add_source_files(env.modules_sources, "*.cpp")
+env.add_source_files(env.modules_sources, "*.cpp")
 

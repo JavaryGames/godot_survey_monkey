@@ -6,5 +6,5 @@ Edit your `engine.cfg` and add this line:
 ```
 [android]
 
-modules="org/godotengine/godot/GodotSurveyMokey"
+modules="org/godotengine/godot/GodotSurveyMonkey"
 ```
